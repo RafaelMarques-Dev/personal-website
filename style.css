@@ -30,18 +30,52 @@ a {
 }
 
 .about-container {
-  display: flex; /* ativa o flexbox */
-  align-items: flex-start; /* alinha imagem e texto pelo topo */
-  gap: 20px; /* espaço entre imagem e texto */
-  flex-wrap: wrap; /* permite quebrar linha em telas menores */
+  display: flex; /* activate o flexbox */
+  align-items: flex-start; /* align the image and text on top*/
+  gap: 20px; /* space betwen image and text*/
+  flex-wrap: wrap; /* break line for small screens*/
 }
 
 .about-image img {
   width: 200px;
   height: auto;
-  border-radius: 8px; /* cantos levemente arredondados, não redondo */
+  border-radius: 8px; /* edges lightly rounded */
 }
 
 .about-text {
   max-width: 600px;
+}
+
+/* responsivity to diferent screens */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro .about-image {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+
+  .about-text h1 {
+    font-size: 24px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+}
+
+/* fade in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
